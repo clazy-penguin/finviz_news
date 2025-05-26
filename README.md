@@ -18,6 +18,7 @@ pnpm wrangler kv namespace create FINVIZ_NEWS
 
 - https://www.npmjs.com/package/ky
 - https://github.com/cheeriojs/cheerio
+- https://googleapis.github.io/js-genai/release_docs
 
 ```sh
 pnpm add cheerio ky @google/genai
