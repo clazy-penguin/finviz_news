@@ -18,6 +18,11 @@ export default {
 		}
 		console.log('뉴스 있음');
 		for (const item of news) {
+			const isRelated = await gemini.evaluate(env.GEMINI_API_KEY, item.title);
+			if (!isRelated) {
+				console.log(`관련 없는 뉴스: ${item.title}`);
+				continue;
+			}
 			const koreanTitle = await gemini.translate(env.GEMINI_API_KEY, item.title);
 			await discord.sendMessage(env.DISCORD_WEBHOOK_URL, `- [${koreanTitle} (${item.title})](${item.link})`);
 		}
