@@ -19,7 +19,7 @@ export default {
 		console.log('뉴스 있음');
 		for (const item of news) {
 			const koreanTitle = await gemini.translate(env.GEMINI_API_KEY, item.title);
-			await discord.sendMessage(env.DISCORD_WEBHOOK_URL, `- [${koreanTitle}(${item.title})](${item.link})`);
+			await discord.sendMessage(env.DISCORD_WEBHOOK_URL, `- [${koreanTitle} (${item.title})](${item.link})`);
 		}
 	},
 } satisfies ExportedHandler<Env>;
